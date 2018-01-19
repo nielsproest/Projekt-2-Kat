@@ -317,6 +317,32 @@ void check_cat()
             }
         }
     }
+
+//Sonic Distance Sensor
+// Clears the trigPin
+digitalWrite(pin_distancesensor_trick, LOW);
+delayMicroseconds(2);
+
+// Sets the trigPin on HIGH state for 10 micro seconds
+digitalWrite(pin_distancesensor_trick, HIGH);
+delayMicroseconds(10);
+digitalWrite(pin_distancesensor_trick, LOW);
+
+// Reads the echoPin, returns the sound wave travel time in microseconds
+duration = pulseIn(pin_distancesensor_signal, HIGH);
+
+// Calculating the distance
+distance= duration/29/2;
+
+// Prints the distance on the Serial Monitor
+//Serial.print("Distance: ");
+//Serial.println(distance);
+
+//Checks for cat on the inside
+if (distance <= 30){
+  time_close = millis() + 1000 * 20;
+  }
+
 }
 
 void setup() {
@@ -333,6 +359,9 @@ void setup() {
   
   pinMode(pin_wire_top, INPUT);
   pinMode(pin_wire_bottom, INPUT);
+
+  pinMode(pin_distancesensor_trick, OUTPUT); // Sets the trigPin as an Output
+  pinMode(pin_distancesensor_signal, INPUT); // Sets the echoPin as an Input
   
   loadconfig();
   //Serial.println(cfg.starttime);
