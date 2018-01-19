@@ -211,14 +211,14 @@ void menu()
 {
   static int current_menu = 0;
 
-  if (detect_m_input()){
-    lock_menu = not lock_menu;
-    lcd.clear();
-  } 
   if (not lock_menu){
     if (detect_lr_input(current_menu, 4)){
       lcd.clear();
     }
+    if (detect_m_input()){
+      lock_menu = true;
+      lcd.clear();
+    } 
   } else {
     if (detect_menu()){
       lock_menu = false;
