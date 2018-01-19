@@ -44,37 +44,23 @@ void saveconfig()
 
 LiquidCrystal_I2C  lcd(I2C_ADDR,En_pin,Rw_pin,Rs_pin,D4_pin,D5_pin,D6_pin,D7_pin);
 
-int pin_motor_up = 13;
-int pin_motor_down = 8;
+#define pin_motor_up 13
+#define pin_motor_down 8
 
-int pin_button_right = 12;
-int pin_button_middle = 11;
-int pin_button_left = 10;
+#define pin_button_right 12
+#define pin_button_middle 11
+#define pin_button_left 10
 
-int pin_wire_top = 7;
-int pin_wire_bottom = 6;
+#define pin_wire_top 7
+#define pin_wire_bottom 6
 
-int pin_distancesensor_trick = 5;
-int pin_distancesensor_signal = 4;
+#define pin_distancesensor_trick 5
+#define pin_distancesensor_signal 4
 
 bool lock_menu = false;
-void menu_0()
-{
-  lcd.setCursor (0,0);
-  lcd.print("0");  
-}
-void menu_1()
-{
-  lcd.setCursor (0,0);
-  lcd.print("1");  
-}
-void menu_2()
-{
-  lcd.setCursor (0,0);
-  lcd.print("2");  
-}
+
 unsigned long current_id;
-void menu_3()
+void menu_0()
 {
   if (lock_menu){ //Selected menu
     static int selected_id = 0;
@@ -101,7 +87,7 @@ void menu_3()
     lcd.print("Add id's");  
   }
 }
-void menu_4()
+void menu_1()
 {
   if (lock_menu){ //Selected menu
     static int selected_id = 0;
@@ -212,7 +198,7 @@ void menu()
   static int current_menu = 0;
 
   if (not lock_menu){
-    if (detect_lr_input(current_menu, 4)){
+    if (detect_lr_input(current_menu, 1)){
       lcd.clear();
     }
     if (detect_m_input()){
@@ -225,20 +211,11 @@ void menu()
     }
   }
   
-  if (current_menu == 0){ //set current time
+  if (current_menu == 0) { //add id
     menu_0();
   }
-  if (current_menu == 1) { //start time
-    menu_1();  
-  }
-  if (current_menu == 2) { //end time
-    menu_2();
-  }
-  if (current_menu == 3) { //add id
-    menu_3();
-  }
-  if (current_menu == 4) { //delete id
-    menu_4();
+  if (current_menu == 1) { //delete id
+    menu_1();
   }
 }
 
@@ -318,29 +295,29 @@ void check_cat()
         }
     }
 
-//Sonic Distance Sensor
-// Clears the trigPin
-digitalWrite(pin_distancesensor_trick, LOW);
-delayMicroseconds(2);
-
-// Sets the trigPin on HIGH state for 10 micro seconds
-digitalWrite(pin_distancesensor_trick, HIGH);
-delayMicroseconds(10);
-digitalWrite(pin_distancesensor_trick, LOW);
-
-// Reads the echoPin, returns the sound wave travel time in microseconds
-duration = pulseIn(pin_distancesensor_signal, HIGH);
-
-// Calculating the distance
-distance= duration/29/2;
-
-// Prints the distance on the Serial Monitor
-//Serial.print("Distance: ");
-//Serial.println(distance);
-
-//Checks for cat on the inside
-if (distance <= 30){
-  time_close = millis() + 1000 * 20;
+  //Sonic Distance Sensor
+  // Clears the trigPin
+  digitalWrite(pin_distancesensor_trick, LOW);
+  delayMicroseconds(2);
+  
+  // Sets the trigPin on HIGH state for 10 micro seconds
+  digitalWrite(pin_distancesensor_trick, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(pin_distancesensor_trick, LOW);
+  
+  // Reads the echoPin, returns the sound wave travel time in microseconds
+  long duration = pulseIn(pin_distancesensor_signal, HIGH);
+  
+  // Calculating the distance
+  long distance= duration/29/2;
+  
+  //Checks for cat on the inside
+  if (distance <= 30){
+    time_close = millis() + 1000 * 20;
+    
+    // Prints the distance on the Serial Monitor
+    //Serial.print("Distance: ");
+    //Serial.println(distance);
   }
 
 }
