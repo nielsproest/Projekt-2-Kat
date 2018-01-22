@@ -11,10 +11,7 @@ rdm630 rfid(2, 0);  //TX-pin of RDM630 connected to Arduino pin 6
 // Config
 class config_t {
 public:
-  unsigned long verifiedids[5] = {0, 0, 0, 0, 0}; //Why does this only work with 5? Index starts at 0, this should be 4, idk
-  
-  long starttime = -1;
-  long endtime = -1;
+  unsigned long verifiedids[5] = {0, 0, 0, 0, 0};
 } cfg;
 
 void loadconfig()
