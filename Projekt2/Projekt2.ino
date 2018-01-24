@@ -195,6 +195,7 @@ void menu()
   static int current_menu = 0;
 
   if (not lock_menu){
+    current_id = 0;
     if (detect_lr_input(current_menu, 1)){
       lcd.clear();
     }
