@@ -1,0 +1,37 @@
+*Pick And Place List
+*Company=
+*Author=
+*eMail=
+*
+*Project=MAIN_V2
+*Date=11:10:34
+*CreatedBy=Fritzing 0.9.3b.04.19.5c895d327c44a3114e5fcc9d8260daf0cbb52806
+*
+*
+*Coordinates in mm, always center of component
+*Origin 0/0=Lower left corner of PCB
+*Rotation in degree (0-360, math. pos.)
+*
+*No;Value;Package;X;Y;Rotation;Side;Name
+1;;THT;72.9693;-37.2902;0;Bottom;TERMINAL-SONIC
+2;10k;THT;16.5813;-57.3133;0;Bottom;R2
+3;;THT;61.0313;-58.5833;180;Bottom;IC1
+4;;THT;62.5983;-6.96525;90;Bottom;TERMINAL-LCD
+5;;THT;26.0784;-6.00537;90;Bottom;TERMINAL-ANTENNA1
+6;;;6.40081;-30.2933;0;Bottom;Via3
+7;;;44.196;-22.9781;0;Bottom;Via1
+8;;;45.4152;-27.8549;0;Bottom;Via2
+9;10k;THT;14.0413;-54.7733;0;Bottom;R1
+10;;;11.4507;-22.99;-90;Bottom;125 kHz RFID module1
+11;;THT;72.9694;-57.6103;0;Bottom;TERMINAL-MOTOR&POWER
+12;;;69.1896;-27.8549;0;Bottom;Via5
+13;;;67.9704;-53.4581;0;Bottom;Via6
+14;10k;THT;39.4413;-57.3133;0;Bottom;R3
+15;;;41.9813;-21.7448;0;Bottom;Part2
+16;;THT;13.9143;-65.4411;-90;Bottom;TERMINAL-WIRE
+17;;;38.7096;-27.8549;0;Bottom;Via7
+18;10k;THT;44.5213;-52.2333;0;Bottom;R5
+19;10k;THT;41.9813;-54.7733;0;Bottom;R4
+20;;THT;35.9844;-65.4412;-90;Bottom;TERMINAL-BUTTONS1
+21;;THT;72.9693;-18.7203;0;Bottom;SHARED-POWER
+22;;;60.0456;-26.0261;0;Bottom;Via4
