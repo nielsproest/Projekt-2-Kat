@@ -307,7 +307,7 @@ void check_cat()
   long duration = pulseIn(pin_distancesensor_signal, HIGH);
   
   // Calculating the distance
-  long distance= duration/29/2;
+  long distance= duration*0.034/2;
   
   //Checks for cat on the inside
   if (distance <= 30){
